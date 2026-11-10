@@ -20,31 +20,49 @@ def calcular_dano(ataque, defesa, critico=False):
     Se for um golpe crítico, o dano dobra.
     Exemplos: calcular_dano(18, 3) -> 15    calcular_dano(18, 3, True) -> 30
               calcular_dano(5, 12) -> 1"""
-    # TODO
-    raise NotImplementedError
+    
+    dano =  max(1,ataque - defesa)
 
+    if critico :
+        dano  *=2
+
+        return dano
+    
+    print(calcular_dano(18,3))
+    print(calcular_dano(18,3, True))
+    print(calcular_dano(5,12))
 
 def aplicar_dano(vida, dano):
     """Devolve a vida depois do golpe (nunca fica negativa).
     Exemplos: aplicar_dano(60, 15) -> 45    aplicar_dano(10, 15) -> 0"""
-    # TODO
-    raise NotImplementedError
+    
+    vida = max(0, vida - dano)
 
+    return vida
+
+print(aplicar_dano(60,15))
+print(aplicar_dano(10,15))
 
 def curar(vida, vida_max, cura=30):
     """Devolve a vida depois de tomar uma poção (nunca passa de vida_max).
     Exemplos: curar(50, 100) -> 80    curar(90, 100) -> 100"""
-    # TODO
-    raise NotImplementedError
+    
+    cura = min(vida_max,vida + cura)
 
+    return cura
 
-def barra_de_vida(vida, vida_max, tamanho=10):
-    """Monta uma barra de texto com 'tamanho' caracteres, por exemplo:
+def barra_de_vida(vida, vida_max, tamanho=10)
+    """Monta uma barra de texto com 'tamanho' c:aracteres, por exemplo:
         barra_de_vida(60, 100) -> "[######----] 60/100"
     Quantidade de '#':  vida * tamanho // vida_max   (o resto é '-')
     Use um laço for com range(tamanho)."""
-    # TODO
-    raise NotImplementedError
+
+    quantidade = tamanho * vida // vida_max
+
+    barra = [*
+
+    for item in range(tamanho)
+
 
 
 def classificar_resultado(vida, vida_max):
@@ -55,7 +73,7 @@ def classificar_resultado(vida, vida_max):
         senão                       -> "Vitória apertada" """
     # TODO: use if / elif / else
     raise NotImplementedError
-
+                 
 
 def ler_acao():
     """Mostra as ações e repete a pergunta ATÉ a pessoa digitar 1, 2 ou 3.
